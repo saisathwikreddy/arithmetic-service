@@ -1,7 +1,11 @@
 const express = require('express')
 const cors = require('cors')
 const app = express();
-const port = 3000;
+require('dotenv').config();
+if(!process.env.PORT){
+    throw new Error('PORT is not defined');
+}
+const port = process.env.PORT;
 const { add } = require('./arithematica')
 app.use(cors());
 
