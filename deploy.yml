@@ -20,8 +20,8 @@ spec:
     spec:
       containers: 
       - name: arithmetic-service
-        image: arithmetic-service:1
-        imagePullPolicy: Never
+        image: practicum15svarikot.azurecr.io/arithmetic-service:latest
+        imagePullPolicy: IfNotPresent
         env:
         - name: PORT
           value: "5000"
@@ -33,7 +33,7 @@ metadata:
 spec:
   selector:
     app: arithmetic-service
-  type: NodePort
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 80
